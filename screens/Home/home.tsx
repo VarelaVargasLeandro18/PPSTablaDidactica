@@ -1,6 +1,6 @@
 import { createIconSet } from "@expo/vector-icons";
 import { useState } from "react";
-import { FAB } from "react-native-paper";
+import { FAB, Portal } from "react-native-paper";
 import { GlobalContainer } from "../../components/centeredVHContainer";
 import { Lang, Tabla } from "../../components/Tabla/tabla";
 
@@ -16,17 +16,19 @@ export const Home = () => {
 
     return (
         <>
-            <FAB.Group
-                    visible={true}
-                    open={open}
-                    icon={open ? 'close' : 'flag'}
-                    onStateChange={ handleOpen }
-                    actions={[
-                        { icon: (props) => <CustomIcon {...props} name="spanish"/>, label: "Español", onPress: () => { setLang('ES') } },
-                        { icon: (props) => <CustomIcon {...props} name="english"/>, label: "Inglés", onPress: () => { setLang('EN') } },
-                        { icon: (props) => <CustomIcon {...props} name="portuguese"/>, label: "Portugés", onPress: () => { setLang('PR') } }
-                    ]}
-                />
+            <Portal>
+                <FAB.Group
+                        visible={true}
+                        open={open}
+                        icon={open ? 'close' : 'flag'}
+                        onStateChange={ (state) => handleOpen(state)}
+                        actions={[
+                            { icon: (props) => <CustomIcon {...props} name="spanish"/>, label: "Español", onPress: () => { setLang('ES') } },
+                            { icon: (props) => <CustomIcon {...props} name="english"/>, label: "Inglés", onPress: () => { setLang('EN') } },
+                            { icon: (props) => <CustomIcon {...props} name="portuguese"/>, label: "Portugés", onPress: () => { setLang('PR') } }
+                        ]}
+                    />
+            </Portal>
             <GlobalContainer>
                 <Tabla language={lang}/>
             </GlobalContainer>
