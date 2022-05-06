@@ -1,4 +1,5 @@
-import { View, Image } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 import { ILabelledTextInputProps, LabelledTextInput } from '../labelledTextInput/labelledTextInput';
 import { ITwoButtonsContainerProps, TwoButtonsContainer } from '../twoButtonsContainer/twoButtonsContainer';
@@ -13,12 +14,20 @@ export declare interface IStandardFormProps {
 
 export const StandardForm = ( props : IStandardFormProps ) => (
     <View style={props.containerStyles}>
-            <LabelledTextInput {...props.firstLabelledTextInputProps} />
-
-            <LabelledTextInput {...props.secondLabelledTextInputProps} />
+            <View style={styles.inputsContainer}>
+                <LabelledTextInput {...props.firstLabelledTextInputProps} />
+                <LabelledTextInput {...props.secondLabelledTextInputProps} />
+            </View>
 
             <Image style={ props.imageStyle } source={ require('../../assets/icon.png') } />
 
             <TwoButtonsContainer {...props.twoButtonsContainerProps} />
     </View>
 );
+
+const styles = StyleSheet.create({
+    inputsContainer: {
+        top: 260,
+        left: 50
+    }
+});

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FAB } from 'react-native-paper';
 
 import { GlobalContainer } from '../../components/centeredVHContainer';
 import { logIn } from '../../services/accountService';
 import { checkCorrectEmail, checkNotEmptyFields } from '../../services/checkCredentialsService';
+import { UserContext } from '../../userContext';
 import { showToastAndroid } from '../../utils/showToastAndroid';
 import { LogIn } from './login';
 import { logInDefaultMessages } from './logInMessages';
@@ -20,6 +21,7 @@ export const LogInContainer = ( { navigation } : any ) => {
     const [open, setOpen] = React.useState<boolean>(false);
     const [email, setEmail] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
+    const user = useContext(UserContext);
 
     const handleLogIn = () => {
         if ( 
@@ -32,6 +34,7 @@ export const LogInContainer = ( { navigation } : any ) => {
                 showToastAndroid( logInDefaultMessages.logInSuccess );
                 setEmail("");
                 setPassword("");
+                user.email = email;
                 navigation.navigate( "Tabla" );
             } )
             .catch( unsuccessfullLogIn );

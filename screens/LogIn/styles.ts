@@ -4,22 +4,22 @@ import { globalStyles } from "../../globalStyles/globalStyles";
 
 export const styles = StyleSheet.create({
     formContainer: {
-        flexDirection: 'column',
-        justifyContent: 'space-between',
         height: heightPercentageToDP('60%'),
         width: widthPercentageToDP('80%'),
-        backgroundColor: '#C4C4C47F',
     },
     image: {
-        width: 150,
-        height: 150,
-        position: 'relative',
-        marginHorizontal: ((widthPercentageToDP('100%') - 150) / 3),
-        top: -100,
-        zIndex: -1
+        width: 500,
+        height: 500,
+        position: 'absolute',
+        marginHorizontal: ((widthPercentageToDP('100%') - 500) / 2),
+        top: (heightPercentageToDP('50%') - 500),
+        zIndex: 0
     },
     inputTransparent: {
-        backgroundColor: 'transparent'
+        backgroundColor: '#00D1FF',
+        width: 250,
+        marginTop: 5,
+        zIndex: 1
     },
     buttonLogIn: globalStyles.button,
     buttonText: globalStyles.buttonText

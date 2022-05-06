@@ -8,7 +8,7 @@ import { Lang, Tabla } from "../../components/Tabla/tabla";
 const glyphMap = { english: '🇺🇸', spanish: '🇪🇸', portuguese: '🇧🇷' };
 const CustomIcon = createIconSet( glyphMap, 'Milonga_400Regular', '' );
 
-export const Home = () => {
+export const Home = ( {navigation} : any ) => {
     const [lang, setLang] = useState<Lang>('ES');
     const [open, setOpen] = useState<boolean>(false);
 
@@ -29,7 +29,7 @@ export const Home = () => {
                         ]}
                     />
             </Portal>
-            <GlobalContainer>
+            <GlobalContainer navigation={navigation}>
                 <Tabla language={lang}/>
             </GlobalContainer>
         </>

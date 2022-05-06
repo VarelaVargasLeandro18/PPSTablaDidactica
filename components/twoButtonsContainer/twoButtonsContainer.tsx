@@ -1,5 +1,5 @@
-import { Text, View } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Image, Pressable, Text, TouchableHighlight, View } from 'react-native';
+import { Button, Portal } from 'react-native-paper';
 
 export declare interface ITwoButtonsContainerProps {
     containerStyle : any,
@@ -25,11 +25,8 @@ export const TwoButtonsContainer = (
         secondButtonText 
     } : ITwoButtonsContainerProps ) => (
     <View style={containerStyle}>
-        <Button style={firstButtonStyle} mode="contained" onPress={firstButtonOnPress}>
-            <Text style={firstButtonTextStyle}>{firstButtonText}</Text>
-        </Button>
-        <Button mode="text" onPress={secondButtonOnPress}>
-            <Text style={secondButtonTextStyle}>{secondButtonText}</Text>
-        </Button>
+        <TouchableHighlight style={firstButtonStyle} onPress={firstButtonOnPress}>
+            <Image style={ {width: 100, height: 100} } source={ require('../../assets/button_icon.png') } />
+        </TouchableHighlight>
     </View>
 );

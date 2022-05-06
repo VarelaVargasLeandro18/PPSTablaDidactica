@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
-import { widthPercentageToDP } from "react-native-responsive-screen";
 
 export const globalStyles = StyleSheet.create({
     button: {
-        width: widthPercentageToDP('60%'),
+        position: 'absolute',
+        backgroundColor: '#D354917F',
+        top: 350,
+        borderRadius: 100,
         alignSelf: 'center',
-        backgroundColor: '#D3B7547F',
     },
     buttonText: {
         fontFamily: 'Milonga_400Regular',

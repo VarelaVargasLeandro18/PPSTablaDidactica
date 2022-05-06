@@ -9,13 +9,15 @@ export const styles = StyleSheet.create({
         height: heightPercentageToDP('25%'),
         flexDirection: 'column',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        top: -100,
     },
     rowButton: {
         ...globalStyles.button,
         maxWidth: 75
     },
     rowButtons: {
+        top: -120,
         width: widthPercentageToDP('80%'),
         flexDirection: 'row',
         justifyContent: 'space-between',
